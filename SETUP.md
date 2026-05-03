@@ -12,6 +12,35 @@ scratch on a fresh Windows 11 / WSL2 machine.
 
 ---
 
+## Step 0: Enable WSL2 and install Ubuntu (skip if already done)
+
+Open PowerShell as Administrator and run:
+
+```powershell
+wsl --install
+```
+
+This enables WSL2 and installs Ubuntu in one step. Reboot when prompted.
+
+After rebooting, Ubuntu will launch and ask you to create a username and
+password. Once that's done, verify WSL2 is active:
+
+```powershell
+wsl --list --verbose
+# Should show Ubuntu with VERSION 2
+```
+
+If you already have WSL1, upgrade it:
+```powershell
+wsl --set-version Ubuntu 2
+wsl --set-default-version 2
+```
+
+Open the Ubuntu app (from the Start menu or by typing `wsl` in a terminal)
+for all remaining steps.
+
+---
+
 ## Step 1: Install Ollama in WSL
 
 Open your WSL terminal and run:
@@ -117,14 +146,17 @@ sudo chown -R $USER:$USER ~/.config/opencode/
 
 ---
 
-## Step 5: Install Python dependencies
+## Step 5: Install Python and other dependencies
 
 ```bash
-sudo apt install python-is-python3 -y
+sudo apt install python-is-python3 sqlite3 -y
 pip install pytest --break-system-packages
 echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.bashrc
 source ~/.bashrc
 ```
+
+`sqlite3` is required by the runner script to capture OpenCode session IDs
+for transcript extraction.
 
 ---
 
@@ -172,13 +204,20 @@ The script will:
 3. Print each task prompt and wait for you to paste it into OpenCode
 4. After all 5 tasks, automatically score and capture the transcript
 
-**To open OpenCode for each task:**
+The script runs 5 tasks. Human-readable versions of the first three are in
+`tasks/`; all five are embedded in the runner script itself.
+
+**To open OpenCode for each task, use a second terminal:**
 ```bash
-# In a second terminal:
 cd ~/767_OpenCode_Experiment/project
 ollama launch opencode
 # Select qwen3.5-16k from the menu
 ```
+
+> **Important:** Use `ollama launch opencode` (the TUI), not `opencode run`.
+> The `opencode run` command exits after a single model response and will not
+> complete any multi-step task. The TUI keeps the tool-execution loop alive
+> for as long as the agent needs.
 
 ---
 
