@@ -1,0 +1,62 @@
+{
+  "T1": {
+    "session_id": "ses_2101e975affe2LxJ7wVFwVQCbQ",
+    "elapsed_seconds": 76.0,
+    "total": 1,
+    "bash": 0,
+    "read": 0,
+    "write": 0,
+    "edit": 0,
+    "text": 1,
+    "reasoning": 0,
+    "other": 0
+  },
+  "T2": {
+    "session_id": "ses_2101d3d67ffeHqlLo02dkCY9Xi",
+    "elapsed_seconds": 138.1,
+    "total": 35,
+    "bash": 4,
+    "read": 3,
+    "write": 0,
+    "edit": 1,
+    "text": 3,
+    "reasoning": 8,
+    "other": 16
+  },
+  "T3": {
+    "session_id": "ses_2101af11cffefsC64RIvwuPZZz",
+    "elapsed_seconds": 104.1,
+    "total": 31,
+    "bash": 3,
+    "read": 3,
+    "write": 0,
+    "edit": 2,
+    "text": 2,
+    "reasoning": 7,
+    "other": 14
+  },
+  "T4": {
+    "session_id": "ses_21019297cffe4rl6LNMR7Jl5Wr",
+    "elapsed_seconds": 76.0,
+    "total": 21,
+    "bash": 1,
+    "read": 2,
+    "write": 0,
+    "edit": 2,
+    "text": 2,
+    "reasoning": 4,
+    "other": 10
+  },
+  "T5": {
+    "session_id": "ses_21017cf76ffeIu2Ah8kN5emL52",
+    "elapsed_seconds": 76.0,
+    "total": 1,
+    "bash": 0,
+    "read": 0,
+    "write": 0,
+    "edit": 0,
+    "text": 1,
+    "reasoning": 0,
+    "other": 0
+  }
+}
